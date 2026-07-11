@@ -593,6 +593,53 @@ em, .italic { font-style: italic; }
   margin: 0 auto 2.4rem;
 }
 
+/* ---------- Manifiesto editorial ---------- */
+.manifesto { text-align: center; }
+
+.manifesto .ornament {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--gold);
+  letter-spacing: 0.6em;
+  margin-bottom: 2rem;
+}
+
+.manifesto blockquote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3.4vw, 2.4rem);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 54rem;
+  margin: 0 auto;
+}
+
+.manifesto blockquote em { color: var(--gold-deep); }
+
+.manifesto cite {
+  display: block;
+  margin-top: 2.2rem;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Letra capital editorial */
+.drop-cap::first-letter {
+  font-family: var(--font-display);
+  font-size: 3.4em;
+  line-height: 0.82;
+  float: left;
+  padding: 0.06em 0.14em 0 0;
+  color: var(--gold);
+}
+
 /* ---------- Perfil ---------- */
 .profile-grid {
   display: grid;
