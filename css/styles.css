@@ -627,6 +627,30 @@ em, .italic { font-style: italic; }
   outline-offset: 6px;
 }
 
+.profile-card .avatar-photo {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  margin: 0 auto 1.6rem;
+  object-fit: cover;
+  border: 1px solid var(--gold);
+  outline: 1px solid var(--hairline);
+  outline-offset: 6px;
+}
+
+.profile-card .avatar-photo {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  margin: 0 auto 1.6rem;
+  border: 1px solid var(--gold);
+  outline: 1px solid var(--hairline);
+  outline-offset: 6px;
+  filter: saturate(0.9) contrast(1.02);
+}
+
 .profile-card h3 { font-size: 1.6rem; }
 
 .profile-card .role {
