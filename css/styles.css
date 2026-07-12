@@ -108,12 +108,12 @@ em, .italic { font-style: italic; }
 
 .brand { display: flex; align-items: center; gap: 0.8rem; }
 .brand-logo {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   flex-shrink: 0;
   border-radius: 50%;
   object-fit: cover;
-  object-position: 62% 36%;
+  object-position: 50% 45%;
   border: 1px solid var(--gold);
   outline: 1px solid var(--hairline);
   outline-offset: 2px;
@@ -129,10 +129,25 @@ em, .italic { font-style: italic; }
 }
 
 .brand-tag {
-  font-size: 0.58rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.76rem;
   color: var(--muted);
-  letter-spacing: 0.3em;
+  letter-spacing: 0.01em;
+  line-height: 1.32;
+  max-width: 260px;
+  margin-top: 1px;
+}
+
+.brand-house {
+  font-family: var(--font-body);
+  font-style: normal;
   text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.56rem;
+  font-weight: 600;
+  color: var(--gold-deep);
+  white-space: nowrap;
 }
 
 .main-nav ul { display: flex; list-style: none; gap: 0.2rem; align-items: center; }
