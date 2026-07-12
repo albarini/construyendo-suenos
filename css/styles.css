@@ -6,12 +6,13 @@
 :root {
   --ink: #101014;            /* casi negro */
   --ink-soft: #2c2c31;
-  --muted: #6e6e73;          /* gris fino */
+  --muted: #62626a;          /* gris fino, legible sobre marfil */
   --paper: #faf9f6;          /* marfil */
   --paper-warm: #f3f1ea;     /* champán claro */
   --surface: #ffffff;
   --gold: #b39152;           /* dorado apagado */
   --gold-deep: #8f7238;
+  --gold-light: #d3b678;     /* dorado luminoso para fondos oscuros */
   --emerald: #142f28;        /* verde profundo */
   --emerald-deep: #0d211c;
   --hairline: rgba(16, 16, 20, 0.12);
@@ -51,6 +52,13 @@ h1, h2, h3, h4 {
   color: var(--ink);
   line-height: 1.12;
   letter-spacing: 0.005em;
+  text-wrap: balance;
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 .container { width: min(1180px, 90%); margin-inline: auto; }
@@ -225,7 +233,7 @@ em, .italic { font-style: italic; }
 
 .hero-inner { position: relative; text-align: center; padding: 7rem 0; width: 100%; }
 
-.hero .kicker { color: var(--gold); justify-content: center; }
+.hero .kicker { color: var(--gold-light); justify-content: center; }
 .hero .kicker::after { content: ""; width: 34px; height: 1px; background: var(--gold); }
 
 .hero h1 {
@@ -236,7 +244,7 @@ em, .italic { font-style: italic; }
   max-width: 17ch;
 }
 
-.hero h1 em { color: var(--gold); font-style: italic; }
+.hero h1 em { color: var(--gold-light); font-style: italic; }
 
 .hero p.lead {
   font-size: 1.05rem;
@@ -317,8 +325,10 @@ em, .italic { font-style: italic; }
 
 .section.dark h2, .section.dark h3 { color: var(--paper); }
 .section.dark p { color: rgba(250, 249, 246, 0.72); }
-.section.dark .kicker { color: var(--gold); }
+.section.dark h2 em { color: var(--gold-light); }
+.section.dark .kicker { color: var(--gold-light); }
 .section.dark .kicker::before, .section.dark .kicker::after { background: var(--gold); }
+.section.dark .card .index { color: var(--gold-light); }
 
 /* Tarjetas de vidrio sobre fondo oscuro */
 .section.dark .card {
@@ -335,8 +345,9 @@ em, .italic { font-style: italic; }
 
 .section.dark .card p { color: rgba(250, 249, 246, 0.66); }
 .section.dark .card .index::after { background: var(--hairline-light); }
-.section.dark .card .card-link { color: var(--gold); }
-.section.dark .fine-note { color: rgba(250, 249, 246, 0.5); }
+.section.dark .card .card-link { color: var(--gold-light); border-bottom-color: rgba(211, 182, 120, 0.6); }
+.section.dark .fine-note { color: rgba(250, 249, 246, 0.62); }
+.section.dark .fine-note a { color: var(--gold-light); }
 
 .hr-fine { border: none; height: 1px; background: var(--hairline); }
 
@@ -417,7 +428,7 @@ em, .italic { font-style: italic; }
   font-family: var(--font-display);
   font-style: italic;
   font-size: 1.05rem;
-  color: var(--gold);
+  color: var(--gold-deep);
   letter-spacing: 0.08em;
   display: block;
   margin-bottom: 1.6rem;
@@ -582,7 +593,7 @@ em, .italic { font-style: italic; }
 .resource-list .num {
   font-family: var(--font-display);
   font-style: italic;
-  color: var(--gold);
+  color: var(--gold-deep);
   font-size: 0.95rem;
   min-width: 2rem;
 }
@@ -676,7 +687,7 @@ em, .italic { font-style: italic; }
   margin-bottom: 1rem;
 }
 
-.cta-band h2 em { color: var(--gold); }
+.cta-band h2 em { color: var(--gold-light); }
 
 .cta-band p {
   color: rgba(250, 249, 246, 0.72);
@@ -689,12 +700,33 @@ em, .italic { font-style: italic; }
 .manifesto { text-align: center; }
 
 .manifesto .ornament {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
   color: var(--gold);
-  letter-spacing: 0.6em;
-  margin-bottom: 2rem;
+  margin-bottom: 2.2rem;
+}
+
+.manifesto .ornament svg {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+.manifesto .ornament::before,
+.manifesto .ornament::after {
+  content: "";
+  width: 64px;
+  height: 1px;
+}
+
+.manifesto .ornament::before {
+  background: linear-gradient(to left, rgba(179, 145, 82, 0.55), transparent);
+}
+
+.manifesto .ornament::after {
+  background: linear-gradient(to right, rgba(179, 145, 82, 0.55), transparent);
 }
 
 .manifesto blockquote {
@@ -706,6 +738,7 @@ em, .italic { font-style: italic; }
   color: var(--ink-soft);
   max-width: 54rem;
   margin: 0 auto;
+  text-wrap: pretty;
 }
 
 .manifesto blockquote em { color: var(--gold-deep); }
@@ -729,7 +762,7 @@ em, .italic { font-style: italic; }
   line-height: 0.82;
   float: left;
   padding: 0.06em 0.14em 0 0;
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 
 /* ---------- Perfil ---------- */
@@ -820,11 +853,43 @@ em, .italic { font-style: italic; }
 .mv-card h3 .n {
   font-size: 0.95rem;
   font-style: italic;
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 
-.mv-card p { color: var(--muted); font-weight: 300; line-height: 1.9; }
+.mv-card p {
+  color: var(--muted);
+  font-weight: 400;
+  line-height: 1.85;
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+.mv-card p + p { margin-top: 1rem; }
 .mv-card strong { color: var(--ink-soft); font-weight: 500; }
+
+/* Valores como índice editorial */
+.values-list {
+  list-style: none;
+  max-width: 62ch;
+}
+
+.values-list li {
+  padding: 0.95rem 0.2rem;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--muted);
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.values-list li:last-child { border-bottom: none; }
+
+.values-list strong {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.22rem;
+  color: var(--gold-deep);
+  margin-right: 0.3rem;
+}
 
 /* ---------- Aliados tipográficos ---------- */
 .allies {
@@ -874,7 +939,7 @@ em, .italic { font-style: italic; }
   text-align: center;
 }
 
-.page-hero .kicker { color: var(--gold); justify-content: center; }
+.page-hero .kicker { color: var(--gold-light); justify-content: center; }
 .page-hero .kicker::after { content: ""; width: 34px; height: 1px; background: var(--gold); }
 
 .page-hero h1 {
@@ -883,7 +948,7 @@ em, .italic { font-style: italic; }
   margin: 1.3rem 0 1rem;
 }
 
-.page-hero h1 em { color: var(--gold); }
+.page-hero h1 em { color: var(--gold-light); }
 
 .page-hero p {
   color: rgba(250, 249, 246, 0.72);
@@ -941,7 +1006,7 @@ em, .italic { font-style: italic; }
   font-size: 0.62rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(250, 249, 246, 0.4);
+  color: rgba(250, 249, 246, 0.55);
 }
 
 /* ---------- WhatsApp flotante discreto ---------- */
@@ -977,22 +1042,23 @@ em, .italic { font-style: italic; }
 .fine-note a { border-bottom: 1px solid var(--gold); padding-bottom: 1px; }
 
 /* ---------- Animación de aparición ---------- */
-.reveal {
+/* El estado oculto solo existe con JS activo (.js): sin script, todo es visible */
+.js .reveal {
   opacity: 0;
   transform: translateY(28px);
   filter: blur(6px);
   transition: opacity 1s var(--ease), transform 1s var(--ease), filter 1s var(--ease);
 }
 
-.reveal.visible { opacity: 1; transform: none; filter: none; }
+.js .reveal.visible { opacity: 1; transform: none; filter: none; }
 
-.reveal.d1 { transition-delay: 0.08s; }
-.reveal.d2 { transition-delay: 0.16s; }
-.reveal.d3 { transition-delay: 0.24s; }
-.reveal.d4 { transition-delay: 0.32s; }
+.js .reveal.d1 { transition-delay: 0.08s; }
+.js .reveal.d2 { transition-delay: 0.16s; }
+.js .reveal.d3 { transition-delay: 0.24s; }
+.js .reveal.d4 { transition-delay: 0.32s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; filter: none; transition: none; }
+  .js .reveal { opacity: 1; transform: none; filter: none; transition: none; }
   .hero-scroll::after { animation: none; }
 }
 

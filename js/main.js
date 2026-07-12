@@ -1,5 +1,9 @@
 // Construyendo Sueños — interacciones globales
 
+// Señala que hay JS activo: el estado inicial oculto de .reveal
+// solo se aplica bajo .js, así el contenido nunca queda invisible sin script
+document.documentElement.classList.add("js");
+
 // Menú móvil
 const toggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector(".main-nav");
