@@ -472,6 +472,31 @@ em, .italic { font-style: italic; }
   margin-top: 0.3rem;
 }
 
+/* Captura del testimonio original */
+.story-proof {
+  display: block;
+  margin-top: 1.6rem;
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: border-color 0.35s var(--ease);
+}
+
+.story-proof:hover { border-color: var(--gold); }
+
+.story-proof img { width: 100%; display: block; }
+
+.story-proof .proof-caption {
+  display: block;
+  padding: 0.55rem 0.9rem;
+  font-size: 0.56rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-top: 1px solid var(--hairline);
+}
+
 /* ---------- Lista de recursos fina ---------- */
 .resource-list { list-style: none; border-top: 1px solid var(--hairline); }
 
