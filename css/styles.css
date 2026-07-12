@@ -478,6 +478,15 @@ em, .italic { font-style: italic; }
 
 .chip:hover { border-color: var(--gold); color: var(--gold-deep); }
 
+/* Chips de enlace sobre fondo oscuro (redes sociales) */
+.section.dark .chip {
+  background: rgba(250, 249, 246, 0.04);
+  border-color: var(--hairline-light);
+  color: rgba(250, 249, 246, 0.8);
+}
+
+.section.dark .chip:hover { border-color: var(--gold); color: var(--gold); }
+
 /* ---------- Historias / testimonios editoriales ---------- */
 .story-card {
   background: var(--surface);
