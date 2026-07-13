@@ -696,6 +696,97 @@ em, .italic { font-style: italic; }
   margin: 0 auto 2.4rem;
 }
 
+/* ---------- Simulacro de examen (hoja editorial) ---------- */
+.exam-sheet {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  padding: 4rem 4.5rem;
+}
+
+.exam-sheet::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(179, 145, 82, 0.3);
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+.exam-stamp {
+  position: absolute;
+  top: 26px;
+  right: 26px;
+  padding: 0.45rem 1.1rem;
+  border: 1px solid rgba(179, 145, 82, 0.45);
+  border-radius: 999px;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.exam-info h2 {
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+  margin: 1.1rem 0 1rem;
+}
+
+.exam-info h2 em { color: var(--gold-deep); }
+
+.exam-info p {
+  color: var(--muted);
+  font-weight: 400;
+  line-height: 1.85;
+  max-width: 54ch;
+  margin-bottom: 2.2rem;
+  text-wrap: pretty;
+}
+
+.exam-specs {
+  list-style: none;
+  border-top: 1px solid var(--hairline);
+}
+
+.exam-specs li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 0.2rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.exam-specs .spec-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.exam-specs .spec-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+}
+
+@media (max-width: 920px) {
+  .exam-sheet { grid-template-columns: 1fr; gap: 2.6rem; padding: 3.2rem 2.2rem; }
+}
+
+@media (max-width: 680px) {
+  .exam-stamp { display: none; }
+}
+
 /* ---------- Manifiesto editorial ---------- */
 .manifesto { text-align: center; }
 
