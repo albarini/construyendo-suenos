@@ -103,6 +103,14 @@ document.querySelectorAll("[data-reel] video").forEach((video) => {
   });
 });
 
+// Si el visitante pide menos movimiento, ningún vídeo de portada se reproduce
+if (reduceMotion) {
+  document.querySelectorAll(".hero-media video[autoplay]").forEach((v) => {
+    v.autoplay = false;
+    v.pause();
+  });
+}
+
 // Portada: pausar o reanudar el vídeo
 const heroVideo = document.getElementById("hero-video");
 const heroToggle = document.getElementById("hero-toggle");
