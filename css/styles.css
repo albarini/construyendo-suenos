@@ -1153,6 +1153,248 @@ em, .italic { font-style: italic; }
   .hero-scroll::after { animation: none; }
 }
 
+/* ==================================================
+   Portada con vídeo
+   ================================================== */
+.hero--video { background: var(--emerald-deep); }
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  display: block;
+}
+
+/* Velo doble: oscurece el vídeo y garantiza contraste del texto */
+.hero-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(13, 33, 28, 0.72) 0%, rgba(13, 33, 28, 0.34) 42%, rgba(13, 33, 28, 0.78) 100%),
+    radial-gradient(ellipse 80% 70% at 50% 45%, rgba(13, 33, 28, 0) 35%, rgba(13, 33, 28, 0.45) 100%);
+  pointer-events: none;
+}
+
+.hero--video .hero-inner { z-index: 2; }
+.hero--video .hero-scroll { z-index: 2; }
+
+/* Control de sonido / pausa discreto */
+.hero-actions {
+  position: absolute;
+  right: 26px;
+  bottom: 26px;
+  z-index: 3;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.media-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(13, 33, 28, 0.5);
+  border: 1px solid rgba(250, 249, 246, 0.35);
+  color: var(--paper);
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: border-color 0.35s var(--ease), background 0.35s var(--ease);
+}
+
+.media-btn:hover { border-color: var(--gold); background: rgba(13, 33, 28, 0.75); }
+.media-btn svg { width: 17px; height: 17px; fill: currentColor; }
+
+/* ==================================================
+   Galería de reels verticales
+   ================================================== */
+.reel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.3rem;
+}
+
+.reel {
+  position: relative;
+  display: block;
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--emerald-deep);
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease);
+}
+
+.reel:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-soft);
+  border-color: rgba(179, 145, 82, 0.5);
+}
+
+.reel-frame {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: var(--emerald-deep);
+}
+
+.reel-frame video,
+.reel-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* El póster cubre el vídeo hasta que este arranca, para no mostrar un hueco negro */
+.reel-frame img[data-poster] {
+  z-index: 1;
+  transition: opacity 0.6s var(--ease);
+}
+
+.reel-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(13, 33, 28, 0) 45%, rgba(13, 33, 28, 0.92) 100%);
+  pointer-events: none;
+}
+
+.reel-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 1.4rem 1.3rem 1.2rem;
+  color: var(--paper);
+}
+
+.reel-caption .r-index {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.reel-caption h3 {
+  color: var(--paper);
+  font-size: 1.28rem;
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+}
+
+.reel-caption p {
+  font-size: 0.78rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(250, 249, 246, 0.74);
+}
+
+/* Sello de reproducción sobre cada reel */
+.reel-play {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(250, 249, 246, 0.4);
+  background: rgba(13, 33, 28, 0.4);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition: opacity 0.4s var(--ease);
+}
+
+.reel-play svg { width: 12px; height: 12px; fill: var(--paper); }
+.reel.is-playing .reel-play { opacity: 0; }
+
+/* Banda de vídeo ambiental a lo ancho */
+.film-band {
+  position: relative;
+  height: clamp(260px, 38vh, 420px);
+  overflow: hidden;
+  background: var(--emerald-deep);
+}
+
+.film-band video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.film-band .film-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(13, 33, 28, 0.92) 0%, rgba(13, 33, 28, 0.55) 55%, rgba(13, 33, 28, 0.8) 100%);
+}
+
+.film-band .film-text {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 2rem 1.4rem;
+}
+
+.film-band blockquote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.35rem, 3vw, 2.2rem);
+  line-height: 1.5;
+  color: var(--paper);
+  max-width: 44rem;
+  text-wrap: pretty;
+}
+
+.film-band blockquote em { color: var(--gold-light); }
+
+.film-band cite {
+  display: block;
+  margin-top: 1.4rem;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(250, 249, 246, 0.62);
+}
+
+@media (max-width: 1024px) {
+  .reel-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+}
+
+@media (max-width: 520px) {
+  .reel-caption { padding: 1.1rem 1rem 1rem; }
+  .reel-caption h3 { font-size: 1.1rem; }
+  .reel-caption p { font-size: 0.72rem; }
+  /* En móvil el botón flotante de WhatsApp ocupa la esquina derecha:
+     el control del vídeo se va a la izquierda para no pisarse con él */
+  .hero-actions { right: auto; left: 16px; bottom: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reel:hover { transform: none; }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .main-nav a { padding: 0.6rem 0.6rem; letter-spacing: 0.1em; }

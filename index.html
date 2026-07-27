@@ -4,14 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Construyendo Sueños | Clases preuniversitarias gratuitas y becas</title>
-  <meta name="description" content="Construyendo Sueños es una iniciativa de responsabilidad social de estudiantes UNSA: clases preuniversitarias gratuitas por Meet y Zoom, y orientación en becas como Beca 18 y PRONABEC." />
+  <meta name="description" content="Iniciativa de responsabilidad social de estudiantes de la UNSA: clases preuniversitarias gratuitas por Meet y Zoom, simulacros de admisión y orientación para postular a Beca 18 y PRONABEC." />
   <meta property="og:title" content="Construyendo Sueños | Educación gratuita para todos" />
-  <meta property="og:description" content="Clases preuniversitarias gratuitas y orientación en becas para talentos con recursos limitados, a nivel nacional." />
+  <meta property="og:description" content="Clases preuniversitarias gratuitas, simulacros de admisión y orientación en becas para todo el Perú." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/video/hero-despegue.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=10" />
+  <link rel="stylesheet" href="css/styles.css?v=11" />
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
 </head>
 <body>
@@ -43,29 +44,58 @@
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="hero">
+
+    <!-- ============ PORTADA CON VÍDEO ============ -->
+    <section class="hero hero--video">
+      <div class="hero-media">
+        <video
+          id="hero-video"
+          autoplay muted loop playsinline
+          preload="metadata"
+          poster="assets/video/hero-despegue.jpg"
+          aria-label="Despegue de un cohete al amanecer">
+          <source src="assets/video/hero-despegue.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-veil"></div>
+      </div>
+
       <div class="container hero-inner">
         <span class="kicker">Soñar es gratis · Aprender también</span>
         <h1>El talento no se mide<br />por los <em>recursos</em></h1>
         <p class="lead">
           Iniciativa de responsabilidad social liderada por estudiantes de la Universidad
-          Nacional de San Agustín. Clases preuniversitarias gratuitas por Meet y Zoom,
+          Nacional de San Agustín. Clases preuniversitarias gratuitas, simulacros de admisión
           y orientación experta para postular a Beca 18 y PRONABEC.
         </p>
         <div class="btn-group">
           <a class="btn btn-gold" href="https://chat.whatsapp.com/DLBcaevvrbd1sQ8iS5Drjj" target="_blank" rel="noopener">Únete a la comunidad</a>
-          <a class="btn btn-ghost" href="perfil.html">Conoce el proyecto</a>
+          <a class="btn btn-ghost" href="#proyecto">Conoce el proyecto</a>
         </div>
       </div>
+
+      <div class="hero-actions">
+        <button class="media-btn" id="hero-toggle" type="button" aria-label="Pausar vídeo de portada">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h3v14H8zm5 0h3v14h-3z"/></svg>
+        </button>
+      </div>
+
       <span class="hero-scroll" aria-hidden="true">Descubre</span>
     </section>
 
-    <!-- ESTADÍSTICAS -->
-    <section class="section tight">
+    <!-- ============ (01) EL PROYECTO ============ -->
+    <section class="section tight" id="proyecto">
       <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">(01) · El proyecto</span>
+          <h2>Educación que no le pide<br />permiso al <em class="gold">bolsillo</em></h2>
+          <p>
+            Nacimos para que ningún postulante se quede fuera de la universidad por falta de
+            dinero. Enseñamos en vivo, entregamos material y acompañamos cada postulación a beca.
+            Sin costo, sin letra chica y para todo el Perú.
+          </p>
+        </div>
         <div class="stats reveal">
-          <div class="stat"><div class="num">6<span class="gold">+</span></div><div class="label">Cursos preuniversitarios</div></div>
+          <div class="stat"><div class="num">7<span class="gold">+</span></div><div class="label">Cursos preuniversitarios</div></div>
           <div class="stat"><div class="num">100<span class="gold">%</span></div><div class="label">Gratuito, siempre</div></div>
           <div class="stat"><div class="num">2</div><div class="label">Plataformas · Meet y Zoom</div></div>
           <div class="stat"><div class="num"><span class="gold">Perú</span></div><div class="label">Alcance nacional</div></div>
@@ -73,19 +103,19 @@
       </div>
     </section>
 
-    <!-- QUÉ OFRECEMOS -->
+    <!-- ============ (02) EL PROGRAMA ============ -->
     <section class="section warm">
       <div class="container">
         <div class="section-head reveal">
-          <span class="kicker">Qué ofrecemos</span>
+          <span class="kicker">(02) · El programa</span>
           <h2>Todo lo necesario para llegar<br />a la <em class="gold">universidad</em></h2>
-          <p>Acompañamos tu preparación de principio a fin: clases, material, comunidad y orientación en becas.</p>
+          <p>Acompañamos tu preparación de principio a fin: clases, material, simulacros y becas.</p>
         </div>
         <div class="cards">
           <article class="card reveal d1">
             <span class="index">No. 01</span>
             <h3>Clases gratuitas en vivo</h3>
-            <p>Geometría analítica, geometría plana, aritmética, álgebra, física, química y razonamiento matemático, por Meet y Zoom.</p>
+            <p>Aritmética, álgebra, geometría, razonamiento matemático, física y química, dictadas por Meet y Zoom.</p>
           </article>
           <article class="card reveal d2">
             <span class="index">No. 02</span>
@@ -106,12 +136,168 @@
       </div>
     </section>
 
-    <!-- GRUPOS RECOMENDADOS -->
+    <!-- ============ (03) INGENIERÍA QUE INSPIRA · REELS ============ -->
+    <section class="section" id="inspiracion">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">(03) · Ingeniería que inspira</span>
+          <h2>Por qué vale la pena<br /><em class="gold">estudiar</em></h2>
+          <p>
+            Cuatro miradas al mundo que te espera del otro lado del examen: la ciencia que repara
+            cuerpos, la obra que levanta ciudades, el cohete que vuelve a la Luna y la historia
+            que nos explica.
+          </p>
+        </div>
+
+        <div class="reel-grid">
+          <article class="reel reveal d1" data-reel>
+            <div class="reel-frame">
+              <img src="assets/video/bionica.jpg" alt="" data-poster />
+              <video muted loop playsinline preload="none" data-src="assets/video/bionica.mp4" aria-label="Biónica y biotecnología"></video>
+            </div>
+            <span class="reel-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <div class="reel-caption">
+              <span class="r-index">i.</span>
+              <h3>Biónica</h3>
+              <p>Ingeniería y biología unidas para devolver movimiento donde parecía imposible.</p>
+            </div>
+          </article>
+
+          <article class="reel reveal d2" data-reel>
+            <div class="reel-frame">
+              <img src="assets/video/construccion.jpg" alt="" data-poster />
+              <video muted loop playsinline preload="none" data-src="assets/video/construccion.mp4" aria-label="Edificación y obra civil"></video>
+            </div>
+            <span class="reel-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <div class="reel-caption">
+              <span class="r-index">ii.</span>
+              <h3>Edificación</h3>
+              <p>Del plano al hormigón: la ingeniería civil que da forma a los lugares donde vivimos.</p>
+            </div>
+          </article>
+
+          <article class="reel reveal d3" data-reel>
+            <div class="reel-frame">
+              <img src="assets/video/artemis.jpg" alt="" data-poster />
+              <video muted loop playsinline preload="none" data-src="assets/video/artemis.mp4" aria-label="Misión Artemis de la NASA"></video>
+            </div>
+            <span class="reel-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <div class="reel-caption">
+              <span class="r-index">iii.</span>
+              <h3>Artemis</h3>
+              <p>El programa que devuelve la humanidad a la Luna, cálculo a cálculo.</p>
+            </div>
+          </article>
+
+          <article class="reel reveal d4" data-reel>
+            <div class="reel-frame">
+              <img src="assets/video/historia.jpg" alt="" data-poster />
+              <video muted loop playsinline preload="none" data-src="assets/video/historia.mp4" aria-label="Patrimonio e historia"></video>
+            </div>
+            <span class="reel-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <div class="reel-caption">
+              <span class="r-index">iv.</span>
+              <h3>Patrimonio</h3>
+              <p>Un lugar donde la historia cobra vida y nos recuerda de dónde venimos.</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="fine-note reveal">
+          Más contenidos en TikTok:
+          <a href="https://www.tiktok.com/@samuel.zahavid" target="_blank" rel="noopener">@samuel.zahavid</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ BANDA DE VÍDEO · MANIFIESTO ============ -->
+    <section class="film-band reveal" aria-label="Nuestro propósito">
+      <video muted loop playsinline preload="none" poster="assets/video/comunidad.jpg" data-src="assets/video/comunidad.mp4" data-autoplay></video>
+      <div class="film-veil"></div>
+      <div class="film-text">
+        <div>
+          <blockquote>
+            Desafiando obstáculos, <em>construyendo sueños</em>.<br />
+            La educación es un derecho, no un privilegio.
+          </blockquote>
+          <cite>Construyendo Sueños · UNSA</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ (04) SIMULACRO ============ -->
+    <section class="section warm">
+      <div class="container">
+        <div class="exam-sheet reveal">
+          <span class="exam-stamp">Admisión · Perú</span>
+          <div class="exam-info">
+            <span class="kicker">(04) · Simulacro de admisión</span>
+            <h2>Ponte a prueba como en el <em>examen real</em></h2>
+            <p>
+              Rinde nuestro simulacro en línea al estilo de los exámenes de admisión de la UNSA,
+              la UNI y San Marcos: preguntas cronometradas, corrección instantánea, resolución
+              fundamentada de cada pregunta y tu nivel de mérito al terminar. Elige el curso,
+              el nivel de dificultad y descubre qué tan listo estás.
+            </p>
+            <a class="btn btn-gold" href="https://albarini.github.io/ADMISION-UNIVERSITARIA-UNSA-simullacro/" target="_blank" rel="noopener">Rendir el simulacro</a>
+          </div>
+          <ul class="exam-specs">
+            <li><span class="spec-num">5</span><span class="spec-label">Cursos disponibles</span></li>
+            <li><span class="spec-num">20</span><span class="spec-label">Preguntas por examen</span></li>
+            <li><span class="spec-num">100</span><span class="spec-label">Puntos en juego</span></li>
+            <li><span class="spec-num">Gratis</span><span class="spec-label">Como siempre</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ (05) BECAS ============ -->
+    <section class="section dark">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">(05) · Becas destacadas</span>
+          <h2>¿Quieres estudiar una carrera <em>becado</em>?</h2>
+          <p>Estas son las oportunidades vigentes de PRONABEC que todo postulante debería revisar.</p>
+        </div>
+        <div class="cards">
+          <article class="card reveal d1">
+            <span class="index">No. 01</span>
+            <h3>Beca 18</h3>
+            <p>La beca integral del Estado peruano: cubre matrícula, pensión, alimentación, alojamiento y materiales de estudio para talentos con excelencia académica.</p>
+            <a class="card-link" href="https://www.pronabec.gob.pe/beca-18/" target="_blank" rel="noopener">Ver convocatoria</a>
+          </article>
+          <article class="card reveal d2">
+            <span class="index">No. 02</span>
+            <h3>Cooperación Internacional</h3>
+            <p>Estudia en el extranjero: PRONABEC difunde becas de países como España, India y Tailandia. Lleva tu talento fuera del Perú.</p>
+            <a class="card-link" href="https://www.pronabec.gob.pe/becas-de-cooperacion-internacional/" target="_blank" rel="noopener">Ver becas</a>
+          </article>
+          <article class="card reveal d3">
+            <span class="index">No. 03</span>
+            <h3>Aliados que Transforman</h3>
+            <p>Becas ofrecidas por universidades, institutos y empresas aliadas, comprometidas con reducir las brechas educativas en el Perú.</p>
+            <a class="card-link" href="https://www.pronabec.gob.pe/aliados-que-transforman/" target="_blank" rel="noopener">Ver oportunidades</a>
+          </article>
+        </div>
+        <p class="fine-note reveal">
+          Canales oficiales de PRONABEC. Consulta gratis al <strong>0800-00018</strong>.
+        </p>
+        <div class="chips reveal">
+          <a class="chip" href="https://www.facebook.com/PRONABEC" target="_blank" rel="noopener">Facebook</a>
+          <a class="chip" href="https://www.instagram.com/pronabec/" target="_blank" rel="noopener">Instagram</a>
+          <a class="chip" href="https://www.tiktok.com/@pronabec" target="_blank" rel="noopener">TikTok</a>
+          <a class="chip" href="https://www.youtube.com/@pronabec" target="_blank" rel="noopener">YouTube</a>
+          <a class="chip" href="https://whatsapp.com/channel/0029VamBHHc8F2pIBPfpn634" target="_blank" rel="noopener">Canal de WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ (06) COMUNIDAD ============ -->
     <section class="section">
       <div class="container narrow">
         <div class="section-head reveal">
-          <span class="kicker">Grupos recomendados</span>
-          <h2>Únete a nuestra <em class="gold">comunidad</em></h2>
+          <span class="kicker">(06) · Comunidad</span>
+          <h2>Estudia <em class="gold">acompañado</em></h2>
           <p>Miles de postulantes ya se preparan en nuestros grupos. El siguiente puedes ser tú.</p>
         </div>
         <ul class="resource-list reveal">
@@ -133,75 +319,8 @@
       </div>
     </section>
 
-    <!-- SIMULACRO UNSA -->
-    <section class="section warm">
-      <div class="container">
-        <div class="exam-sheet reveal">
-          <span class="exam-stamp">Física · Estilo UNSA</span>
-          <div class="exam-info">
-            <span class="kicker">Simulacro de admisión</span>
-            <h2>Ponte a prueba como en el <em>examen real</em></h2>
-            <p>
-              Rinde nuestro simulacro de Física al estilo del examen de admisión de la UNSA:
-              preguntas cronometradas, corrección instantánea, resolución fundamentada de cada
-              pregunta y tu puesto en el ranking por niveles de mérito. Escribe tu nombre,
-              elige la carrera a la que postulas y descubre qué tan listo estás.
-            </p>
-            <a class="btn btn-gold" href="https://albarini.github.io/ADMISION-UNIVERSITARIA-UNSA-simullacro/" target="_blank" rel="noopener">Rendir el simulacro</a>
-          </div>
-          <ul class="exam-specs">
-            <li><span class="spec-num">40</span><span class="spec-label">Preguntas</span></li>
-            <li><span class="spec-num">100</span><span class="spec-label">Puntos en juego</span></li>
-            <li><span class="spec-num">40 s</span><span class="spec-label">Por pregunta</span></li>
-            <li><span class="spec-num">Gratis</span><span class="spec-label">Como siempre</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- BECAS -->
-    <section class="section dark">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="kicker">Becas destacadas</span>
-          <h2>¿Quieres estudiar una carrera <em>becado</em>?</h2>
-          <p>Atención, postulante preseleccionado: revisa estas oportunidades vigentes de PRONABEC.</p>
-        </div>
-        <div class="cards">
-          <article class="card reveal d1">
-            <span class="index">No. 01</span>
-            <h3>Beca 18</h3>
-            <p>La beca integral del Estado peruano: cubre matrícula, pensión, alimentación, alojamiento y materiales de estudio para talentos con excelencia académica.</p>
-            <a class="card-link" href="https://www.pronabec.gob.pe/beca-18/" target="_blank" rel="noopener">Ver convocatoria</a>
-          </article>
-          <article class="card reveal d2">
-            <span class="index">No. 02</span>
-            <h3>Becas de Cooperación Internacional</h3>
-            <p>Estudia en el extranjero: PRONABEC difunde becas de países como España, India y Tailandia. Lleva tu talento fuera del Perú.</p>
-            <a class="card-link" href="https://www.pronabec.gob.pe/becas-de-cooperacion-internacional/" target="_blank" rel="noopener">Ver becas</a>
-          </article>
-          <article class="card reveal d3">
-            <span class="index">No. 03</span>
-            <h3>Aliados que Transforman</h3>
-            <p>Becas ofrecidas por universidades, institutos y empresas aliadas, comprometidas con reducir las brechas educativas en el Perú.</p>
-            <a class="card-link" href="https://www.pronabec.gob.pe/aliados-que-transforman/" target="_blank" rel="noopener">Ver oportunidades</a>
-          </article>
-        </div>
-        <p class="reveal" style="text-align:center; margin-top:3.2rem; font-size:0.68rem; font-weight:600; letter-spacing:0.32em; text-transform:uppercase; color: var(--gold);">—&nbsp;&nbsp;Páginas oficiales de PRONABEC&nbsp;&nbsp;—</p>
-        <p class="fine-note reveal" style="margin-top:0.9rem;">Infórmate ahí y haz tu consulta directamente con PRONABEC: en cualquiera de sus redes o en la línea gratuita <strong>0800-00018</strong>.</p>
-        <div class="chips reveal" style="margin-top: 1.8rem;">
-          <a class="chip" href="https://www.facebook.com/PRONABEC" target="_blank" rel="noopener">Facebook</a>
-          <a class="chip" href="https://www.instagram.com/pronabec/" target="_blank" rel="noopener">Instagram</a>
-          <a class="chip" href="https://www.tiktok.com/@pronabec" target="_blank" rel="noopener">TikTok</a>
-          <a class="chip" href="https://www.youtube.com/@pronabec" target="_blank" rel="noopener">YouTube</a>
-          <a class="chip" href="https://x.com/pronabec" target="_blank" rel="noopener">X · Twitter</a>
-          <a class="chip" href="https://whatsapp.com/channel/0029VamBHHc8F2pIBPfpn634" target="_blank" rel="noopener">Canal de WhatsApp</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA FINAL -->
-    <section class="section">
+    <!-- ============ CIERRE ============ -->
+    <section class="section tight">
       <div class="container">
         <div class="cta-band reveal">
           <h2>Tu sueño universitario<br />empieza <em>hoy</em></h2>
@@ -213,6 +332,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
@@ -230,7 +350,7 @@
             <li><a href="cursos.html">RM, Matemática y Química</a></li>
             <li><a href="historias.html">Historias que Inspiran</a></li>
             <li><a href="convocatorias.html">Convocatorias</a></li>
-            <li><a href="https://albarini.github.io/ADMISION-UNIVERSITARIA-UNSA-simullacro/" target="_blank" rel="noopener">Simulacro UNSA</a></li>
+            <li><a href="https://albarini.github.io/ADMISION-UNIVERSITARIA-UNSA-simullacro/" target="_blank" rel="noopener">Simulacro de admisión</a></li>
           </ul>
         </div>
         <div>
@@ -253,6 +373,6 @@
     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.04 3C9.4 3 4 8.36 4 14.95c0 2.1.56 4.16 1.62 5.98L4 27l6.24-1.6a12.1 12.1 0 0 0 5.79 1.47h.01c6.63 0 12.03-5.36 12.03-11.95C28.07 8.36 22.67 3 16.04 3zm7.07 17.06c-.3.83-1.74 1.59-2.43 1.69-.62.09-1.4.13-2.26-.14-.52-.16-1.19-.38-2.05-.75-3.6-1.55-5.95-5.16-6.13-5.4-.18-.24-1.47-1.95-1.47-3.72s.93-2.64 1.26-3c.33-.36.72-.45.96-.45l.69.01c.22.01.52-.08.81.62.3.72 1.02 2.49 1.11 2.67.09.18.15.39.03.63-.12.24-.18.39-.36.6l-.54.63c-.18.18-.37.38-.16.74.21.36.93 1.53 2 2.48 1.37 1.22 2.53 1.6 2.89 1.78.36.18.57.15.78-.09.21-.24.9-1.05 1.14-1.41.24-.36.48-.3.81-.18.33.12 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.87-.21 1.7z"/></svg>
   </a>
 
-  <script src="js/main.js?v=2"></script>
+  <script src="js/main.js?v=3"></script>
 </body>
 </html>
