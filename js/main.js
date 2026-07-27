@@ -4,25 +4,36 @@
 // solo se aplica bajo .js, así el contenido nunca queda invisible sin script
 document.documentElement.classList.add("js");
 
-// Menú móvil
+// Menú móvil: los dos grupos de la barra se abren y cierran juntos
 const toggle = document.querySelector(".nav-toggle");
-const nav = document.querySelector(".main-nav");
+const navGroups = document.querySelectorAll(".nav-group");
 
-if (toggle && nav) {
-  toggle.addEventListener("click", () => {
-    const open = nav.classList.toggle("open");
+if (toggle && navGroups.length) {
+  const setMenu = (open) => {
+    navGroups.forEach((g) => g.classList.toggle("open", open));
     toggle.classList.toggle("open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  };
+
+  toggle.addEventListener("click", () => {
+    setMenu(!navGroups[0].classList.contains("open"));
   });
 
-  // Cerrar el menú al elegir una opción
-  nav.querySelectorAll("a").forEach((link) =>
-    link.addEventListener("click", () => {
-      nav.classList.remove("open");
-      toggle.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
-    })
+  navGroups.forEach((g) =>
+    g.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenu(false)))
   );
+}
+
+// La barra flota transparente sobre la portada y se vuelve sólida al bajar,
+// porque sobre el fondo claro el texto blanco sería ilegible.
+const header = document.querySelector(".site-header");
+
+if (header) {
+  const syncHeader = () => {
+    header.classList.toggle("is-solid", window.scrollY > 60);
+  };
+  syncHeader();
+  window.addEventListener("scroll", syncHeader, { passive: true });
 }
 
 // Aparición suave de secciones al hacer scroll
