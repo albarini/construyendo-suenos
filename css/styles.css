@@ -1640,25 +1640,27 @@ em, .italic { font-style: italic; }
 }
 
 @media (max-width: 1080px) {
-  .nav-inner { grid-template-columns: 1fr auto 1fr; padding: 0 1.2rem; min-height: 66px; }
-  .nav-toggle { display: block; }
+  /* La primera fila mantiene su altura aunque debajo se despliegue el menú */
+  .nav-inner { grid-template-columns: 1fr auto 1fr; grid-template-rows: 66px auto auto; padding: 0 1.2rem; min-height: 66px; row-gap: 0; }
+  .nav-toggle { display: block; grid-column: 1; grid-row: 1; }
 
-  /* Los dos grupos se funden en un panel desplegable */
+  /* Los dos grupos se funden en un panel desplegable.
+     Se apilan como filas de la propia rejilla de la barra: en absoluto ambos
+     caían sobre el mismo punto y el segundo, opaco, tapaba entero al primero. */
   .nav-group {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    grid-column: 1 / -1;
+    margin-inline: -1.2rem;
     background: rgba(250, 249, 246, 0.97);
     -webkit-backdrop-filter: blur(24px);
     backdrop-filter: blur(24px);
-    border-bottom: 1px solid var(--hairline);
+    border-bottom: none;
     display: none;
   }
 
-  .nav-group--right { border-bottom: none; }
+  .nav-group--left { grid-row: 2; }
+  .nav-group--right { grid-row: 3; }
+  .nav-group--right.open { border-bottom: 1px solid var(--hairline); }
   .nav-group.open { display: block; }
-  .nav-group--right.open { top: calc(100% + 1px); }
 
   .nav-group ul {
     flex-direction: column;
@@ -1688,7 +1690,7 @@ em, .italic { font-style: italic; }
   }
 
   /* La marca se centra por rejilla incluso con el botón a un lado */
-  .nav-brand { grid-column: 2; }
+  .nav-brand { grid-column: 2; grid-row: 1; }
   .nav-toggle.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
   .nav-toggle.open span:nth-child(2) { opacity: 0; }
   .nav-toggle.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
