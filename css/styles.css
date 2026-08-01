@@ -17,6 +17,11 @@
   --gold-light: #d3b678;     /* dorado luminoso para fondos oscuros */
   --emerald: #142f28;        /* verde profundo */
   --emerald-deep: #0d211c;
+  /* Ciruela: sale de la luna rosa del vídeo y marca un solo capítulo, el de
+     "lo que ya existe". El verde sigue siendo la marca. */
+  --plum-deep: #1c1024;      /* violeta casi negro, fondo de ese capítulo */
+  --plum: #6d4480;           /* acento sobre marfil, 7.16:1 */
+  --plum-light: #d7b3e4;     /* acento sobre el violeta oscuro */
   --hairline: rgba(16, 16, 20, 0.12);
   --hairline-light: rgba(250, 249, 246, 0.18);
   --shadow-soft: 0 24px 60px -30px rgba(16, 16, 20, 0.25);
@@ -1000,10 +1005,11 @@ em, .italic { font-style: italic; }
    Cinta de cursos
    Los cursos como textura en movimiento, no como lista que leer.
    ================================================== */
+/* La cinta cierra el capítulo en ciruela: mismo fondo, sin costura */
 .teach-band {
-  background: var(--emerald-deep);
+  background: var(--plum-deep);
   padding-block: clamp(1.5rem, 3vw, 2.3rem);
-  border-block: 1px solid rgba(250, 249, 246, 0.12);
+  border-top: 1px solid rgba(215, 179, 228, 0.16);
   overflow: hidden;
 }
 
@@ -1034,7 +1040,7 @@ em, .italic { font-style: italic; }
 }
 
 .teach-run b { font-weight: 400; color: rgba(250, 249, 246, 0.92); }
-.teach-run i { font-style: normal; color: var(--gold-light); }
+.teach-run i { font-style: normal; color: var(--plum-light); }
 
 @keyframes teach-scroll {
   from { transform: translateX(0); }
@@ -1055,23 +1061,42 @@ em, .italic { font-style: italic; }
 }
 
 /* ==================================================
-   Vistazo: un vídeo vertical con su pie
+   Vistazo al otro lado
+   Único capítulo en ciruela: dos vídeos verticales con su pie.
    ================================================== */
-.spot-grid {
-  display: grid;
-  grid-template-columns: clamp(190px, 24vw, 280px) 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
+.spotlight {
+  background: var(--plum-deep);
+  padding: clamp(4.5rem, 9vw, 7rem) 0 clamp(3.5rem, 7vw, 5.5rem);
 }
+
+.spotlight .section-head { margin-bottom: 3.2rem; }
+.spotlight h2 { color: var(--paper); }
+.spotlight h2 em { color: var(--plum-light); }
+
+.kicker--plum { color: var(--plum-light); }
+.kicker--plum::before { background: var(--plum-light); }
+
+.spot-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.4rem, 4vw, 3rem);
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.spot-item { margin: 0; }
 
 .spot-frame {
   position: relative;
   aspect-ratio: 9 / 16;
   overflow: hidden;
-  background: var(--emerald-deep);
-  border: 1px solid var(--hairline);
+  background: #000;
+  border: 1px solid rgba(215, 179, 228, 0.22);
   border-radius: 2px;
+  transition: border-color 0.5s var(--ease);
 }
+
+.spot-item:hover .spot-frame { border-color: rgba(215, 179, 228, 0.5); }
 
 .spot-frame video {
   position: absolute;
@@ -1082,50 +1107,43 @@ em, .italic { font-style: italic; }
   display: block;
 }
 
-.spot-frame.is-playing .reel-play { opacity: 0; }
+.spot-item.is-playing .reel-play { opacity: 0; }
 
-.spot-kicker {
-  font-family: var(--font-ui);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--gold-deep);
-}
+.spot-item figcaption { padding: 1.1rem 0.1rem 0; }
 
-.spot-title {
+.spot-item h3 {
   font-family: var(--font-brand);
   font-weight: 400;
-  font-size: clamp(0.95rem, 2vw, 1.35rem);
+  font-size: clamp(0.72rem, 1.5vw, 0.92rem);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   line-height: 1.7;
-  margin: 0.8rem 0 1.1rem;
+  color: var(--paper);
 }
 
-.spot-lead {
-  font-size: clamp(1.02rem, 1.4vw, 1.16rem);
-  line-height: 1.68;
-  color: var(--ink-soft);
-  max-width: 42ch;
+.spot-emoji { letter-spacing: 0; font-size: 0.9em; }
+
+.spot-item figcaption p {
+  margin-top: 0.4rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: rgba(250, 249, 246, 0.72);
   text-wrap: pretty;
 }
 
 .spot-source {
-  margin-top: 1.4rem;
   font-family: var(--font-ui);
-  font-size: 0.7rem;
+  font-size: 0.66rem;
   letter-spacing: 0.1em;
-  color: var(--muted);
 }
 
-.spot-source a { color: var(--gold-deep); border-bottom: 1px solid var(--hairline); }
-.spot-source a:hover { color: var(--ink); border-bottom-color: currentColor; }
+.spotlight .spot-source { color: rgba(250, 249, 246, 0.55); }
+.spotlight .spot-source a { color: var(--plum-light); }
+.spotlight .spot-source a:hover { color: var(--paper); }
 
-@media (max-width: 860px) {
-  .spot-grid { grid-template-columns: 1fr; gap: 2.2rem; }
-  .spot-frame { max-width: 240px; }
-  .spot-lead { max-width: none; }
+@media (max-width: 560px) {
+  .spot-pair { gap: 1.1rem; }
+  .spot-item figcaption { padding-top: 0.9rem; }
 }
 
 /* ---------- Aliados tipográficos ---------- */
