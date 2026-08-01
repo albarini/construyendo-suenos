@@ -56,7 +56,8 @@ a:hover { color: var(--gold-deep); }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 600;
+  /* 500 en vez de 600: el titular pesado ensuciaba la página */
+  font-weight: 500;
   color: var(--ink);
   line-height: 1.15;
   /* Con una grotesca real el titular se cierra; el espaciado positivo de
@@ -374,12 +375,14 @@ em, .italic { font-style: italic; }
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  padding: 0.95rem 2.3rem;
-  border-radius: 999px;
+  padding: 1.05rem 2.5rem;
+  /* Cantos casi rectos como el resto del sistema: la píldora de 999px era
+     lo único redondo de la página y engordaba el botón. */
+  border-radius: 2px;
   font-family: var(--font-ui);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
   cursor: pointer;
   border: 1px solid transparent;
@@ -938,15 +941,17 @@ em, .italic { font-style: italic; }
   color: var(--gold-deep);
 }
 
-/* El momento tipográfico de la página: Archivo en su ancho extendido */
+/* El nombre lleva la misma letra que la marca de la barra: Michroma en
+   caja alta y muy espaciada. Un solo peso, así que nunca engorda. */
 .founder-name {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-stretch: 112%;
-  font-size: clamp(2.1rem, 6.2vw, 4.1rem);
-  line-height: 0.98;
-  letter-spacing: -0.03em;
-  margin: 0.6rem 0 1.7rem;
+  font-family: var(--font-brand);
+  font-weight: 400;
+  font-size: clamp(1.25rem, 4.2vw, 1.75rem);
+  line-height: 1.65;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0.9rem 0 1.9rem;
 }
 
 .founder-lead {
@@ -1016,17 +1021,19 @@ em, .italic { font-style: italic; }
 .teach-run {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  padding-right: 1.5rem;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-stretch: 110%;
-  font-size: clamp(1.45rem, 4vw, 2.5rem);
-  letter-spacing: -0.02em;
+  gap: 2.4rem;
+  padding-right: 2.4rem;
+  /* La misma letra de la marca, pequeña y muy espaciada: antes iba en
+     negrita a 40px y la cinta parecía un cartel, no una filigrana. */
+  font-family: var(--font-brand);
+  font-weight: 400;
+  font-size: clamp(0.72rem, 1.3vw, 0.95rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   white-space: nowrap;
 }
 
-.teach-run b { font-weight: 700; color: var(--paper); }
+.teach-run b { font-weight: 400; color: rgba(250, 249, 246, 0.92); }
 .teach-run i { font-style: normal; color: var(--gold-light); }
 
 @keyframes teach-scroll {
@@ -1045,6 +1052,80 @@ em, .italic { font-style: italic; }
     width: 100%;
     padding-right: 0;
   }
+}
+
+/* ==================================================
+   Vistazo: un vídeo vertical con su pie
+   ================================================== */
+.spot-grid {
+  display: grid;
+  grid-template-columns: clamp(190px, 24vw, 280px) 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.spot-frame {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: var(--emerald-deep);
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+}
+
+.spot-frame video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.spot-frame.is-playing .reel-play { opacity: 0; }
+
+.spot-kicker {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.spot-title {
+  font-family: var(--font-brand);
+  font-weight: 400;
+  font-size: clamp(0.95rem, 2vw, 1.35rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.7;
+  margin: 0.8rem 0 1.1rem;
+}
+
+.spot-lead {
+  font-size: clamp(1.02rem, 1.4vw, 1.16rem);
+  line-height: 1.68;
+  color: var(--ink-soft);
+  max-width: 42ch;
+  text-wrap: pretty;
+}
+
+.spot-source {
+  margin-top: 1.4rem;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.spot-source a { color: var(--gold-deep); border-bottom: 1px solid var(--hairline); }
+.spot-source a:hover { color: var(--ink); border-bottom-color: currentColor; }
+
+@media (max-width: 860px) {
+  .spot-grid { grid-template-columns: 1fr; gap: 2.2rem; }
+  .spot-frame { max-width: 240px; }
+  .spot-lead { max-width: none; }
 }
 
 /* ---------- Aliados tipográficos ---------- */
@@ -1145,19 +1226,10 @@ em, .italic { font-style: italic; }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 3.5rem;
   padding-bottom: 3.5rem;
   border-bottom: 1px solid var(--hairline-light);
-}
-
-.site-footer .f-brand {
-  font-family: var(--font-display);
-  font-size: 1.7rem;
-  font-weight: 500;
-  color: var(--paper);
-  display: block;
-  margin-bottom: 1.1rem;
 }
 
 .site-footer h4 {
